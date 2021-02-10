@@ -9,5 +9,5 @@ Configurações:
 - IDE Eclipse;
 
 - Classe Principal: RestfulApiApplication.java
-- Rota: http://localhost:8080/vencedores
+- Método GET - http://localhost:8080/vencedores
 - Retorno: JSON
