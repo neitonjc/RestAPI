@@ -34,7 +34,7 @@ public class Controller {
 		
 		List<ProdutorVencedorTO> list = vencedorRepository.getProdutorPremioMaiorMenorAno();
 		Long maiorItervalo=0l;
-		Long menorItervalo=10l;
+		Long menorItervalo=0l;
 		for (ProdutorVencedorTO pTO : list) {
 			if(pTO.getIntervalo().compareTo(maiorItervalo)==1)
 				maiorItervalo = pTO.getIntervalo();
@@ -43,7 +43,7 @@ public class Controller {
 					&& !pTO.getIntervalo().equals(0l))
 				menorItervalo = pTO.getIntervalo();
 			
-			if(!pTO.getIntervalo().equals(0l) 
+			if(!pTO.getIntervalo().equals(0l)
 					&& pTO.getIntervalo().compareTo(menorItervalo)==-1)
 				menorItervalo = pTO.getIntervalo();
 			
