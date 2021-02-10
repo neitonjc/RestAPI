@@ -55,7 +55,8 @@ public class Controller {
 			if(!maiorItervalo.equals(0l)
 					&& pTO.getIntervalo().equals(maiorItervalo))
 				listaMaioresIntervalos.add(pTO);
-			if(pTO.getIntervalo().equals(menorItervalo))
+			if(!maiorItervalo.equals(0l)
+					&& pTO.getIntervalo().equals(menorItervalo))
 				listaMenoresIntervalos.add(pTO);
 		}
 		
