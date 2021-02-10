@@ -8,6 +8,6 @@ Configurações:
 - Projeto Maven;
 - IDE Eclipse;
 
-Classe Principal: RestfulApiApplication.java
-Rota: http://localhost:8080/vencedores
-Retorno: JSON
+- Classe Principal: RestfulApiApplication.java
+- Rota: http://localhost:8080/vencedores
+- Retorno: JSON
