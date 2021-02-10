@@ -34,14 +34,19 @@ public class Controller {
 		
 		List<ProdutorVencedorTO> list = vencedorRepository.getProdutorPremioMaiorMenorAno();
 		Long maiorItervalo=0l;
-		Long menorItervalo=0l;
+		Long menorItervalo=10l;
 		for (ProdutorVencedorTO pTO : list) {
-			if(pTO.getIntervalo().compareTo(maiorItervalo)==1){
+			if(pTO.getIntervalo().compareTo(maiorItervalo)==1)
 				maiorItervalo = pTO.getIntervalo();
-			}
-			if(pTO.getIntervalo().compareTo(menorItervalo)==-1){
+			
+			if(menorItervalo.equals(0l)
+					&& !pTO.getIntervalo().equals(0l))
 				menorItervalo = pTO.getIntervalo();
-			}
+			
+			if(!pTO.getIntervalo().equals(0l) 
+					&& pTO.getIntervalo().compareTo(menorItervalo)==-1)
+				menorItervalo = pTO.getIntervalo();
+			
 		}
 		
 		List<ProdutorVencedorTO> listaMaioresIntervalos = new ArrayList<>();
@@ -50,8 +55,7 @@ public class Controller {
 			if(!maiorItervalo.equals(0l)
 					&& pTO.getIntervalo().equals(maiorItervalo))
 				listaMaioresIntervalos.add(pTO);
-			if(!menorItervalo.equals(0l)
-					&& pTO.getIntervalo().equals(menorItervalo))
+			if(pTO.getIntervalo().equals(menorItervalo))
 				listaMenoresIntervalos.add(pTO);
 		}
 		

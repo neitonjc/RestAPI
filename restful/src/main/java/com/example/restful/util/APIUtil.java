@@ -18,11 +18,20 @@ public class APIUtil {
 			CSVReader reader = new CSVReader(new FileReader(strFile));
 			
 			filmes = reader.readAll();
-
+			
+			String nome;
 			for (String[] f : filmes) {
 				String s = f[0].toString();
-				if (s.contains(";yes"))
-					produtores.add(new ProdutorVencedor(Long.parseLong(s.split(";")[0]), s.split(";")[3]));
+				if (s.contains(";yes")){
+					nome = s.split(";")[3];
+					if(nome.contains("and")){
+						produtores.add(new ProdutorVencedor(Long.parseLong(s.split(";")[0]), nome.split(" and ")[0].trim()));
+						produtores.add(new ProdutorVencedor(Long.parseLong(s.split(";")[0]), nome.split(" and ")[1].trim()));
+					} else {
+						produtores.add(new ProdutorVencedor(Long.parseLong(s.split(";")[0]), nome.trim()));
+					}
+				}
+					
 			}
 
 			reader.close();
