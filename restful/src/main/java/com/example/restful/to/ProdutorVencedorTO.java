@@ -20,7 +20,7 @@ public class ProdutorVencedorTO {
 
 
 	public Long getIntervalo(){
-		if (maiorAno!=null || menorAno!=null)
+		if (maiorAno!=null && menorAno!=null)
 			return maiorAno-menorAno;
 		else 
 			return 0l;
