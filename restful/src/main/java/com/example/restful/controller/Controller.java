@@ -24,7 +24,7 @@ public class Controller {
 	private VencedorRepository vencedorRepository;
 	
 	@GetMapping
-	@ResponseStatus(HttpStatus.FOUND)
+	@ResponseStatus(HttpStatus.OK)
 	public IntervalosTO getProdutoresVencedores(){
 		List<ProdutorVencedor> listP = APIUtil.getProdutoresPremiados();
 		
