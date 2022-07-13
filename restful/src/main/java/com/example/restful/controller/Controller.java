@@ -28,9 +28,7 @@ public class Controller {
 	public IntervalosTO getProdutoresVencedores(){
 		List<ProdutorVencedor> listP = APIUtil.getProdutoresPremiados();
 		
-		for (ProdutorVencedor p : listP) {
-			vencedorRepository.save(p);
-		}
+		listP.forEach(p -> vencedorRepository.save(p));
 		
 		List<ProdutorVencedorTO> list = vencedorRepository.getProdutorPremioMaiorMenorAno();
 		Long maiorItervalo=0l;
