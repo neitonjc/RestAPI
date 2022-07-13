@@ -27,6 +27,11 @@ public class APIUtil {
 					if(nome.contains("and")){
 						produtores.add(new ProdutorVencedor(Long.parseLong(s.split(";")[0]), nome.split(" and ")[0].trim()));
 						produtores.add(new ProdutorVencedor(Long.parseLong(s.split(";")[0]), nome.split(" and ")[1].trim()));
+					} else if(nome.contains(",")) {
+						int qtWinners =  countOccurrences(nome, ',') + 1;
+						for(int i=0;  i<qtWinners; i++) {
+							produtores.add(new ProdutorVencedor(Long.parseLong(s.split(";")[i]), nome.split(",")[i].trim()));
+						}
 					} else {
 						produtores.add(new ProdutorVencedor(Long.parseLong(s.split(";")[0]), nome.trim()));
 					}
@@ -40,5 +45,11 @@ public class APIUtil {
 		}
 		
 		return produtores;
+	}
+	
+	private static int countOccurrences(String str, char ch) {
+	    return (int) str.chars()
+	            .filter(c -> c == ch)
+	            .count();
 	}
 }
