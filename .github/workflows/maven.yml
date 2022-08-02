@@ -28,8 +28,8 @@ jobs:
             -Dsonar.organization=neitonjc
             -Dsonar.java.binaries=restful/target/classes
             -Dsonar.language=java
-            -Dsonar.sources=src/main/java/
-            -Dsonar.projectBaseDir=RestAPI/restful
+            # -Dsonar.sources=src/main/java/
+            # -Dsonar.projectBaseDir=RestAPI/restful
             # Comma-separated paths to directories containing main source files.
             # When you need the analysis to take place in a directory other than the one from which it was launched
             
